@@ -8,12 +8,12 @@ import (
 
 var done = make(chan bool)
 var fibs = []int{}
-var time = flag.Int("time", 10, "How long you want the process to last for (default 10 seconds)")
+var timer = flag.Int("time", 10, "How long you want the process to last for (default 10 seconds)")
 
 func main() {
 	flag.Parse()
 
-	ticker := time.NewTicker(*time * time.Second)
+	ticker := time.NewTicker(time.Duration(*timer) * time.Second)
 
 	go generator()
 	for {
