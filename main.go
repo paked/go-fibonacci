@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"log"
+	"fmt"
 	"time"
 )
 
@@ -27,7 +27,7 @@ func main() {
 		select {
 		//Timer has finished
 		case <-ticker.C:
-			log.Printf("%v", len(fibs))
+			fmt.Printf("%v", len(fibs))
 			//Send "done = true" to the generator routine
 			done <- true
 			return
