@@ -27,7 +27,7 @@ func main() {
 		select {
 		//Timer has finished
 		case <-ticker.C:
-			fmt.Printf("%v", len(fibs))
+			fmt.Printf("%v\n", len(fibs))
 			//Send "done = true" to the generator routine
 			done <- true
 			return
