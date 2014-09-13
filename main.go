@@ -15,6 +15,11 @@ var fibs = []int{}
 //Self docced ;-D
 var timer = flag.Int("time", 10, "How long you want the process to last for (default 10 seconds)")
 
+// const layout = "2006-01-02 01:07:43"
+
+// const layout = "Jan 2, 2006 at 3:04pm"
+const layout = "2006-02-01 3:04pm"
+
 func main() {
 	//Parse flags
 	flag.Parse()
@@ -27,7 +32,7 @@ func main() {
 		select {
 		//Timer has finished
 		case <-ticker.C:
-			fmt.Printf("%v\n", len(fibs))
+			fmt.Printf("%v, %v\n", time.Now().Local().Format(layout), len(fibs))
 			//Send "done = true" to the generator routine
 			done <- true
 			return
